@@ -1,4 +1,6 @@
 function App() {
+  JSON.parse('this will break the app')
+
   return (
     <main className="app-shell">
       <section className="hero-card" aria-labelledby="app-title">
