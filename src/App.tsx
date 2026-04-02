@@ -1,5 +1,4 @@
 function App() {
-
   return (
     <main className="app-shell">
       <section className="hero-card" aria-labelledby="app-title">
