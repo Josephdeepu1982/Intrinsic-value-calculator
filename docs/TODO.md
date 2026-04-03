@@ -23,6 +23,15 @@ This TODO list breaks the MVP into very small, AI-friendly implementation steps.
 - [x] Deploy the `Hello World` app to Vercel.
 - [x] Document the deployment URL and deployment steps.
 
+CICD pipeline
+- [x] Initialize github repository and push
+- [x] Add CI workflow for Node.js v24.
+- [x] Enable dependency caching.
+- [x] Install dependencies.
+- [x] Run lint checks.
+- [x] Run type checks.
+- [x] Build the project.
+
 ## Phase 2: App Skeleton With Mock Data
 
 - [ ] Replace `Hello World` with a basic desktop layout shell.
