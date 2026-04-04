@@ -1,0 +1,17 @@
+---
+description: Enforce branch naming workflow conventions
+alwaysApply: true
+---
+
+# Branching Workflow Rules
+
+## Branch Naming
+
+- Use branch names starting with `feature/`, `fix/`, or `refactor/`
+
+## Workflow Expectations
+
+- Keep work organized in small, logical commits
+- Avoid mixing unrelated changes in one commit
+- Verify changes before committing
+- Do not create WIP commits; use stash instead
