@@ -1,4 +1,9 @@
-export const stockTabs = ['Overview', 'Financials', 'Intrinsic Value', 'Chart'] as const
+export const stockTabs = [
+  'Overview',
+  'Financials',
+  'Intrinsic Value',
+  'Chart',
+] as const
 
 type StockTab = (typeof stockTabs)[number]
 type ValuationTone = 'positive' | 'balanced' | 'negative'
@@ -76,11 +81,14 @@ export const mockStock: {
   valuationTone: 'positive',
   updatedAt: 'Mock FY2025 refresh',
   tabSummaries: {
-    Overview: 'Highlights the market snapshot, qualitative context, and overall valuation stance.',
-    Financials: 'Surfaces the core metrics that support the current price versus value story.',
+    Overview:
+      'Highlights the market snapshot, qualitative context, and overall valuation stance.',
+    Financials:
+      'Surfaces the core metrics that support the current price versus value story.',
     'Intrinsic Value':
       'Reserves space for a future DCF, multiple-based estimate, and blended fair value explanation.',
-    Chart: 'Shows where historical trend visualizations will live once real data sources are connected.',
+    Chart:
+      'Shows where historical trend visualizations will live once real data sources are connected.',
   },
   fundamentals: [
     {
@@ -91,7 +99,8 @@ export const mockStock: {
     {
       label: 'PEG',
       value: '1.6x',
-      helper: 'Indicates growth-adjusted valuation still needs execution support.',
+      helper:
+        'Indicates growth-adjusted valuation still needs execution support.',
     },
     {
       label: 'Free cash flow',

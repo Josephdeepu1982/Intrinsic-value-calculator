@@ -24,6 +24,7 @@ This TODO list breaks the MVP into very small, AI-friendly implementation steps.
 - [x] Document the deployment URL and deployment steps.
 
 CICD pipeline
+
 - [x] Initialize github repository and push
 - [x] Add CI workflow for Node.js v24.
 - [x] Enable dependency caching.

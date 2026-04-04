@@ -1,5 +1,12 @@
 import { FormEvent, useState } from 'react'
-import { NavLink, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import {
+  NavLink,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+  useParams,
+} from 'react-router-dom'
 import { holdings, mockStock, stockTabs, watchlistItems } from './mockData.ts'
 
 type NavItemProps = {
@@ -28,10 +35,16 @@ function App() {
       <Header />
       <main className="app-main">
         <Routes>
-          <Route path="/" element={<Navigate to={`/stocks/${mockStock.symbol}`} replace />} />
+          <Route
+            path="/"
+            element={<Navigate to={`/stocks/${mockStock.symbol}`} replace />}
+          />
           <Route path="/stocks/:symbol" element={<StockDetailsPage />} />
           <Route path="/saved" element={<SavedStocksPage />} />
-          <Route path="*" element={<Navigate to={`/stocks/${mockStock.symbol}`} replace />} />
+          <Route
+            path="*"
+            element={<Navigate to={`/stocks/${mockStock.symbol}`} replace />}
+          />
         </Routes>
       </main>
     </div>
@@ -91,7 +104,10 @@ function Header() {
 
 function NavItem({ to, children }: NavItemProps) {
   return (
-    <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to={to}>
+    <NavLink
+      className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+      to={to}
+    >
       {children}
     </NavLink>
   )
@@ -99,7 +115,8 @@ function NavItem({ to, children }: NavItemProps) {
 
 function StockDetailsPage() {
   const { symbol } = useParams()
-  const [activeTab, setActiveTab] = useState<(typeof stockTabs)[number]>('Overview')
+  const [activeTab, setActiveTab] =
+    useState<(typeof stockTabs)[number]>('Overview')
 
   if (symbol?.toUpperCase() !== mockStock.symbol) {
     return <Navigate to={`/stocks/${mockStock.symbol}`} replace />
@@ -129,9 +146,15 @@ function StockDetailsPage() {
 
         <div className="summary-grid">
           <SummaryStat label="Market price" value={mockStock.marketPrice} />
-          <SummaryStat label="Intrinsic value" value={mockStock.intrinsicValue} />
+          <SummaryStat
+            label="Intrinsic value"
+            value={mockStock.intrinsicValue}
+          />
           <SummaryStat label="Valuation gap" value={mockStock.valuationGap} />
-          <SummaryStat label="Confidence band" value={mockStock.confidenceBand} />
+          <SummaryStat
+            label="Confidence band"
+            value={mockStock.confidenceBand}
+          />
         </div>
 
         <div className="action-row">
@@ -145,7 +168,9 @@ function StockDetailsPage() {
 
         <div className="notice-row">
           <p className="notice-pill">Mock data only for layout review.</p>
-          <p className="notice-pill">Informational only, not financial advice.</p>
+          <p className="notice-pill">
+            Informational only, not financial advice.
+          </p>
         </div>
       </section>
 
@@ -160,7 +185,11 @@ function StockDetailsPage() {
               <p className="panel-copy">{mockStock.tabSummaries[activeTab]}</p>
             </div>
 
-            <div className="tab-row" role="tablist" aria-label="Stock details tabs">
+            <div
+              className="tab-row"
+              role="tablist"
+              aria-label="Stock details tabs"
+            >
               {stockTabs.map((tab) => (
                 <button
                   key={tab}
@@ -182,7 +211,8 @@ function StockDetailsPage() {
                 <h3 id="fundamentals-title">Mock key metrics</h3>
               </div>
               <p className="panel-copy">
-                Placeholder values show the intended information hierarchy for the MVP.
+                Placeholder values show the intended information hierarchy for
+                the MVP.
               </p>
             </div>
 
@@ -204,7 +234,8 @@ function StockDetailsPage() {
                 <h3 id="charts-title">Mock chart containers</h3>
               </div>
               <p className="panel-copy">
-                Lightweight placeholder visuals reserve space for future chart integrations.
+                Lightweight placeholder visuals reserve space for future chart
+                integrations.
               </p>
             </div>
 
@@ -241,7 +272,8 @@ function StockDetailsPage() {
                 <h3 id="ai-insights-title">Qualitative framing</h3>
               </div>
               <p className="panel-copy">
-                AI-generated summaries are mock placeholders and may be incomplete.
+                AI-generated summaries are mock placeholders and may be
+                incomplete.
               </p>
             </div>
 
@@ -261,7 +293,9 @@ function StockDetailsPage() {
               <article className="insight-card">
                 <div className="insight-card-header">
                   <h4>Moat explanation</h4>
-                  <span className="muted-pill">{mockStock.moatStrength} moat</span>
+                  <span className="muted-pill">
+                    {mockStock.moatStrength} moat
+                  </span>
                 </div>
                 <p>{mockStock.moatExplanation}</p>
               </article>
@@ -277,9 +311,18 @@ function StockDetailsPage() {
             </div>
 
             <ul className="checklist">
-              <li>Every major panel is explicitly labeled as mock or placeholder content.</li>
-              <li>No secrets, internal prompts, or provider-specific assumptions are embedded.</li>
-              <li>The valuation summary includes a clear financial disclaimer for review builds.</li>
+              <li>
+                Every major panel is explicitly labeled as mock or placeholder
+                content.
+              </li>
+              <li>
+                No secrets, internal prompts, or provider-specific assumptions
+                are embedded.
+              </li>
+              <li>
+                The valuation summary includes a clear financial disclaimer for
+                review builds.
+              </li>
             </ul>
           </section>
         </aside>
@@ -298,12 +341,16 @@ function SavedStocksPage() {
             <h2 id="saved-title">Mock watchlist and holdings</h2>
           </div>
           <p className="panel-copy">
-            Placeholder tables show the intended saved-items experience for authenticated users.
+            Placeholder tables show the intended saved-items experience for
+            authenticated users.
           </p>
         </div>
 
         <div className="summary-grid">
-          <SummaryStat label="Watchlist items" value={`${watchlistItems.length}`} />
+          <SummaryStat
+            label="Watchlist items"
+            value={`${watchlistItems.length}`}
+          />
           <SummaryStat label="Holdings" value={`${holdings.length}`} />
           <SummaryStat label="Largest gain" value="+19.2%" />
           <SummaryStat label="Largest gap" value="MSFT +8.0%" />
@@ -329,7 +376,9 @@ function SavedStocksPage() {
                     </h4>
                     <p>{item.note}</p>
                   </div>
-                  <span className={`valuation-pill ${item.valuationTone}`}>{item.valuationLabel}</span>
+                  <span className={`valuation-pill ${item.valuationTone}`}>
+                    {item.valuationLabel}
+                  </span>
                 </div>
                 <dl className="inline-stats">
                   <div>
@@ -381,7 +430,9 @@ function SavedStocksPage() {
                     <td>{holding.averageCost}</td>
                     <td>{holding.currentPrice}</td>
                     <td>{holding.marketValue}</td>
-                    <td className={holding.performanceTone}>{holding.unrealizedGainLoss}</td>
+                    <td className={holding.performanceTone}>
+                      {holding.unrealizedGainLoss}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -421,7 +472,9 @@ function ChartCard({ title, subtitle, data }: ChartCardProps) {
             <div className="chart-bar-track">
               <div
                 className="chart-bar"
-                style={{ height: `${Math.max((point.value / maxValue) * 100, 18)}%` }}
+                style={{
+                  height: `${Math.max((point.value / maxValue) * 100, 18)}%`,
+                }}
               />
             </div>
             <p>{point.label}</p>
