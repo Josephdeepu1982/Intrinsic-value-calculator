@@ -1,0 +1,43 @@
+---
+description: Project-wide documentation expectations
+alwaysApply: true
+---
+
+# Documentation Rules
+
+## Code Documentation
+
+- All functions must include a short explanation of purpose and inputs when the behavior is not obvious
+- Document non-trivial return values, side effects, and important assumptions
+- Keep comments focused on intent and usage, not line-by-line narration
+- Avoid stale comments by updating documentation when code changes
+
+## Project Documentation
+
+- Update the `README` when setup, usage, architecture, or core features change
+- Keep API, configuration, and environment variable documentation current
+- Document important developer workflows when they affect onboarding or maintenance
+
+## Writing Style
+
+- Prefer concise, plain-language explanations
+- Use consistent terminology across code comments and project docs
+- Add examples when they clarify how something should be used
+
+## Example
+
+```ts
+// Avoid
+function calculateValue(rate, years) {
+  return rate * years;
+}
+```
+
+```ts
+// Prefer
+// Calculates the projected value using the annual rate and number of years.
+// Inputs: annualRate as a decimal, projectionYears as a whole number.
+function calculateProjectedValue(annualRate, projectionYears) {
+  return annualRate * projectionYears;
+}
+```

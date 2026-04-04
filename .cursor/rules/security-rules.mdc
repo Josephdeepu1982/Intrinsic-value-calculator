@@ -1,0 +1,48 @@
+---
+description: Project-wide security expectations
+alwaysApply: true
+---
+
+# Security Rules
+
+## Secrets
+
+- Never hardcode API keys, passwords, tokens, or other secrets in source code
+- Use environment variables or approved secret management systems
+- Do not commit credentials, private keys, or secret configuration files
+
+## Input Safety
+
+- Validate all external input before using it
+- Sanitize user-provided values before storing, rendering, or passing them to downstream systems
+- Treat request bodies, query params, headers, form input, and third-party data as untrusted
+
+## Secure Coding
+
+- Prefer allowlists and explicit validation over loose filtering
+- Avoid building SQL queries, shell commands, or HTML output directly from raw user input
+- Keep authentication, authorization, and sensitive data handling explicit and reviewable
+
+## Example
+
+```ts
+// Avoid
+const apiKey = "live-secret-key";
+```
+
+```ts
+// Prefer
+const apiKey = process.env.API_KEY;
+```
+
+```ts
+// Avoid
+const search = req.query.search;
+database.query(`SELECT * FROM users WHERE name = '${search}'`);
+```
+
+```ts
+// Prefer
+const search = SearchDto.parse(req.query).search;
+database.query("SELECT * FROM users WHERE name = ?", [search]);
+```
