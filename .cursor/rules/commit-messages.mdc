@@ -1,0 +1,37 @@
+---
+description: 
+alwaysApply: true
+---
+
+# Commit Message Rules
+
+## Format
+
+- Use exactly: `<type> <description>`
+- Allowed types: `[FEAT]`, `[FIX]`, `[DOCS]`, `[STYLE]`, `[REFACTOR]`, `[TEST]`, `[CHORE]`
+- Keep the description at 50 characters or fewer
+- Start the description with an uppercase letter
+- Do not end the description with a period
+- Use imperative mood
+- Be specific and concise
+
+## Examples
+
+```text
+Good:
+[FEAT] Add user authentication
+[FIX] Resolve memory leak in parser
+[DOCS] Update installation guide
+
+Bad:
+[FEAT] Added a new feature for user authentication with JWT tokens
+Fixed stuff
+refactor: Refactored the code
+```
+
+## Commit Practices
+
+- Commit in small, logical chunks
+- Keep one concern per commit
+- Test changes before committing
+- Do not create WIP commits; use stash instead

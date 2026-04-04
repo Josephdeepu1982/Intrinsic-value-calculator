@@ -23,22 +23,32 @@ This TODO list breaks the MVP into very small, AI-friendly implementation steps.
 - [x] Deploy the `Hello World` app to Vercel.
 - [x] Document the deployment URL and deployment steps.
 
+CICD pipeline
+
+- [x] Initialize github repository and push
+- [x] Add CI workflow for Node.js v24.
+- [x] Enable dependency caching.
+- [x] Install dependencies.
+- [x] Run lint checks.
+- [x] Run type checks.
+- [x] Build the project.
+
 ## Phase 2: App Skeleton With Mock Data
 
-- [ ] Replace `Hello World` with a basic desktop layout shell.
-- [ ] Add a top navigation/header with a placeholder brand and search input.
-- [ ] Add a stock details page route using a hardcoded mock symbol.
-- [ ] Add a two-column stock details layout inspired by the PRD reference UI.
-- [ ] Add a mock top summary card showing company name, ticker, price, intrinsic value, and valuation label.
-- [ ] Add mock CTA buttons for `Add to watchlist` and `Add to portfolio`.
-- [ ] Add mock tabs for `Overview`, `Financials`, `Intrinsic Value`, and `Chart`.
-- [ ] Add a mock fundamentals card with placeholder metrics.
-- [ ] Add a mock AI insights panel with company summary, bull thesis, bear thesis, and moat explanation.
-- [ ] Add mock chart containers for revenue, free cash flow, net income, and price history.
-- [ ] Add a mock watchlist/holdings page layout.
-- [ ] Document the UI structure and component map in `docs/`.
-- [ ] Review UI copy for financial disclaimers and placeholder labeling.
-- [ ] Check that no mock data or debug values expose secrets or internal-only assumptions.
+- [x] Replace `Hello World` with a basic desktop layout shell.
+- [x] Add a top navigation/header with a placeholder brand and search input.
+- [x] Add a stock details page route using a hardcoded mock symbol.
+- [x] Add a two-column stock details layout inspired by the PRD reference UI.
+- [x] Add a mock top summary card showing company name, ticker, price, intrinsic value, and valuation label.
+- [x] Add mock CTA buttons for `Add to watchlist` and `Add to portfolio`.
+- [x] Add mock tabs for `Overview`, `Financials`, `Intrinsic Value`, and `Chart`.
+- [x] Add a mock fundamentals card with placeholder metrics.
+- [x] Add a mock AI insights panel with company summary, bull thesis, bear thesis, and moat explanation.
+- [x] Add mock chart containers for revenue, free cash flow, net income, and price history.
+- [x] Add a mock watchlist/holdings page layout.
+- [x] Document the UI structure and component map in `docs/`.
+- [x] Review UI copy for financial disclaimers and placeholder labeling.
+- [x] Check that no mock data or debug values expose secrets or internal-only assumptions.
 - [ ] Deploy the mock-data UI.
 
 ## Phase 3: Shared Foundations

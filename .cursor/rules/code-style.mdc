@@ -1,0 +1,49 @@
+---
+description: Project-wide code style guidance
+alwaysApply: true
+---
+
+# Code Style Rules
+
+## Naming
+
+- Use `camelCase` for variables, functions, and object properties
+- Use `PascalCase` for React components, classes, and types
+- Use descriptive names that explain purpose
+- Avoid single-letter variables except for short, obvious cases like loop indices
+
+## File Structure
+
+- Keep files focused on one responsibility
+- Group related logic together
+- Prefer small helper functions over long inline blocks
+- Use clear section ordering: imports, constants, main logic, exports
+
+## Formatting
+
+- Keep formatting consistent with the existing file
+- Prefer readable line breaks over dense one-line expressions
+- Use whitespace to separate logical sections
+- Avoid unnecessary comments; add brief comments only when intent is not obvious
+
+## Examples
+
+```ts
+// Avoid
+const x = getDiscountedCashFlow(data);
+
+// Prefer
+const discountedCashFlow = getDiscountedCashFlow(data);
+```
+
+```ts
+// Avoid
+function calc(v: number) {
+  return v * 1.1;
+}
+
+// Prefer
+function calculateGrowthRate(baseValue: number) {
+  return baseValue * 1.1;
+}
+```

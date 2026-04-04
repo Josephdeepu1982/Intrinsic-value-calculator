@@ -1,0 +1,53 @@
+---
+description: Project-wide architecture boundaries
+alwaysApply: true
+---
+
+# Architecture Rules
+
+## Layering
+
+- Use layered architecture: controller -> service -> dao
+- Controllers coordinate requests and responses only
+- Services contain business logic and orchestration
+- DAOs handle persistence and data access only
+
+## Boundaries
+
+- Do not put business logic in controllers
+- Do not access the database directly from controllers
+- Keep validation and transport concerns separate from business logic
+- Prefer dependency flow from controller -> service -> dao, not the reverse
+
+## DTOs
+
+- Use DTOs for input validation and data transfer between layers
+- Validate incoming request data before it reaches business logic
+- Keep DTOs focused on shape and validation, not behavior
+
+## Example
+
+```ts
+// Avoid
+async function createUserController(req, res) {
+  const user = await db.users.insert({
+    email: req.body.email,
+    plan: applyPricingRules(req.body.plan),
+  });
+
+  res.json(user);
+}
+```
+
+```ts
+// Prefer
+async function createUserController(req, res) {
+  const input = CreateUserDto.parse(req.body);
+  const user = await userService.createUser(input);
+  res.json(user);
+}
+```
+
+- `createUserController()` handles request and response
+- `userService.createUser()` contains business rules
+- `userDao` performs database operations

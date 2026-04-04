@@ -1,0 +1,50 @@
+---
+description: Project-wide testing expectations
+alwaysApply: true
+---
+
+# Testing Rules
+
+## Coverage Expectations
+
+- Every feature must include appropriate automated tests
+- Add or update tests when behavior changes
+- Prefer targeted tests that validate behavior over low-value tests tied to implementation details
+- Do not rely on manual testing alone for important flows
+
+## Test Structure
+
+- Keep tests close to the behavior they verify
+- Write tests with clear setup, action, and assertion flow
+- Make test names descriptive and behavior-focused
+- Use deterministic test data and avoid fragile timing-based assertions
+
+## Naming
+
+- Use consistent naming conventions for test files and test cases
+- Name tests to describe the expected behavior
+- Prefer names like `shouldCreateUserWhenInputIsValid` over vague names like `worksCorrectly`
+
+## Service Testing
+
+- Each service method must have at least one unit test
+- Test both success paths and meaningful failure paths when relevant
+- Mock infrastructure boundaries such as databases, APIs, and file systems in unit tests
+
+## Example
+
+```ts
+// Avoid
+it("works", async () => {
+  const result = await pricingService.calculate(input);
+  expect(result).toBeDefined();
+});
+```
+
+```ts
+// Prefer
+it("shouldApplyDiscountForAnnualPlan", async () => {
+  const result = await pricingService.calculate(input);
+  expect(result.discountRate).toBe(0.15);
+});
+```
